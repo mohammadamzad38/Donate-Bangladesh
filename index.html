@@ -4,15 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Donate bangladesh</title>
+
+    <!-- Tailwind linked -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font linked -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+
+    <style>
+        .font{
+            font-family: "Lexend", sans-serif;
+            font-optical-sizing: auto;
+        }
+        .btnclr{
+            background-color: #b4f461;
+        }
+    </style>
+
+    <!--  -->
+
 </head>
-<body>
+<body class="font">
     <header>
         <nav>
-            <div><button>Blog</button></div>
-            <div>
-                <img src="" alt="">
+            <div class="flex flex-row items-center justify-between lg:px-[137px] sm:px-[60px] py-6 bg-[#f9f7f3] ">
+                <div><button class="btnclr px-6 py-1 rounded">Blog</button></div>
+                <div class="flex flex-row items-center gap-3">
+                <img src="./assets/logo.png" alt="">
+                <h2 class="lg:text-xl sm:text-sm font-bold">Donate Bangladesh</h2>
+                </div>
+                <div class="flex flex-row items-center gap-3">
+                <img src="./assets/coin.png" alt="">
+                <h2>5500 BDT</h2>
+                </div>
             </div>
-            <div></div>
         </nav>
     </header>
 
