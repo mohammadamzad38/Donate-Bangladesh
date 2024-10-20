@@ -173,7 +173,7 @@ document.getElementById('quota-donation-btn').addEventListener('click', function
         displayhistory.appendChild(childdiv2);
 
         document.getElementById('history-section').appendChild(displayhistory);
-
+        
         }
     
 })
