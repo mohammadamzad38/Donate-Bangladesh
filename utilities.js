@@ -1,7 +1,6 @@
 // Common function for DOnation
 
 function getDonationInput (id){
-    console.log('id pacche', getDonationInput);
     const donationvalue = document.getElementById(id).value;
     const inputnumber = parseFloat(donationvalue);
 

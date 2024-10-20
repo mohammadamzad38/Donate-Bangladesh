@@ -30,20 +30,6 @@ document.getElementById('history-button')
 
 
 
-
-
-
-
-
-
-
-// prevent load
-
-// document.getElementById('feni-donation-btn').addEventListener('click', function(event){
-//     event.preventDefault();
-// })
-
-
 // document.getElementById('quota-donation-btn').addEventListener('click', function(event){
 //     event.preventDefault();
 // })
@@ -66,10 +52,9 @@ document.getElementById('Noakhali-donation-btn').addEventListener('click', funct
 
     const resarveBalance = currentBalance('reserve-balance');
 
-    console.log('donationpaise', nKhalidonation)
     if(isNaN(nKhalidonation) || nKhalidonation < 0){
 
-        alert ('input right input');
+        alert ('Please input right Amount');
     }
     else{
         const newBalance = nKhalidonation + mainBalance;
@@ -82,13 +67,15 @@ document.getElementById('Noakhali-donation-btn').addEventListener('click', funct
 
         const now = new Date();
 
-        const displayhistory = document.createElement('.devclass');
+        const displayhistory = document.createElement('div');
 
         displayhistory.classList.add('border-2');
         displayhistory.classList.add('rounded-md');
-        displayhistory.classList.add('m-20');
-        displayhistory.classList.add('gap-2');
-        displayhistory.classList.add('')
+        displayhistory.classList.add('mx-20');
+        displayhistory.classList.add('gap-6');
+        displayhistory.classList.add('my-4');
+        displayhistory.classList.add('p-4');
+       
     
 
 
@@ -108,4 +95,63 @@ document.getElementById('Noakhali-donation-btn').addEventListener('click', funct
     }
 
     
+})
+
+
+// Donation for Feni
+
+
+document.getElementById('feni-donation-btn').addEventListener('click', function(event){
+    event.preventDefault();
+
+    const donationInputfeni = getDonationInput('input-d-feni');
+
+    const fenibalance = currentBalance('fani-balance');
+
+    const resarveBalance = currentBalance('reserve-balance');
+
+    if(isNaN(donationInputfeni) || donationInputfeni < 0){
+        alert ('Please input right Amount')
+    }
+    else{
+
+       const donationForFeni = donationInputfeni + fenibalance;
+
+       const feniResarve = resarveBalance - donationInputfeni;
+
+       document.getElementById('fani-balance').innerText= donationForFeni;
+       document.getElementById('reserve-balance').innerText= feniResarve;
+
+       console.log('pooooooooo', feniResarve, 'kooooo', feniResarve)
+
+       const now = new Date();
+
+        const displayhistory = document.createElement('div');
+
+        displayhistory.classList.add('border-2');
+        displayhistory.classList.add('rounded-md');
+        displayhistory.classList.add('mx-20');
+        displayhistory.classList.add('gap-6');
+        displayhistory.classList.add('my-4');
+        displayhistory.classList.add('p-4');
+       
+    
+
+
+        const childdiv1 = document.createElement('div');
+        childdiv1.innerHTML=`
+        <h2 class="font-bold">${donationInputfeni} Taka is Donated for Flood Relief in Feni,Bangladesh </h2>
+        `
+        const childdiv2 = document.createElement('div');
+        childdiv2.innerHTML=`
+        <h2 class="">Date: ${now}</h2>
+        `
+
+        displayhistory.appendChild(childdiv1);
+        displayhistory.appendChild(childdiv2);
+
+        document.getElementById('history-section').appendChild(displayhistory);
+
+    }
+
 })
