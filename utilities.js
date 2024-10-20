@@ -38,3 +38,28 @@ function btnColorSwitch (id){
 
 
 
+
+// Prevent section button load
+
+
+document.getElementById('donation-button').addEventListener('click', function(event){
+    event.preventDefault();
+})
+
+document.getElementById('history-button').addEventListener('click', function(event){
+    event.preventDefault();
+})
+
+
+
+// button switching
+
+document.getElementById('donation-button')
+.addEventListener('click', function(){
+    showsection('donation-section');
+})
+
+document.getElementById('history-button')
+.addEventListener('click', function(){
+    showsection('history-section');
+})

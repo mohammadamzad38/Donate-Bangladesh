@@ -1,38 +1,4 @@
 
-// Prevent section button load
-
-
-document.getElementById('donation-button').addEventListener('click', function(event){
-    event.preventDefault();
-})
-
-document.getElementById('history-button').addEventListener('click', function(event){
-    event.preventDefault();
-})
-
-
-
-// button switching
-
-document.getElementById('donation-button')
-.addEventListener('click', function(){
-    showsection('donation-section');
-})
-
-document.getElementById('history-button')
-.addEventListener('click', function(){
-    showsection('history-section');
-})
-
-
-
-
-
-
-
-// document.getElementById('quota-donation-btn').addEventListener('click', function(event){
-//     event.preventDefault();
-// })
 
 // document.getElementById('blog-btn').addEventListener('click', function(event){
 //     event.preventDefault();
@@ -122,8 +88,6 @@ document.getElementById('feni-donation-btn').addEventListener('click', function(
        document.getElementById('fani-balance').innerText= donationForFeni;
        document.getElementById('reserve-balance').innerText= feniResarve;
 
-       console.log('pooooooooo', feniResarve, 'kooooo', feniResarve)
-
        const now = new Date();
 
         const displayhistory = document.createElement('div');
@@ -154,4 +118,62 @@ document.getElementById('feni-donation-btn').addEventListener('click', function(
 
     }
 
+})
+
+
+// Donation for Quota-movement
+
+
+document.getElementById('quota-donation-btn').addEventListener('click', function(event){
+    event.preventDefault();
+
+    const quotaDInput = getDonationInput ('quota-donation-input');
+
+    const quotaBalance = currentBalance('quota-balance');
+
+    const resarveBalance = currentBalance('reserve-balance');
+
+    if(isNaN(quotaDInput) || quotaDInput < 0){
+        alert ('Please input right Amount')
+    }
+    else{
+
+        const quotaDonation = quotaBalance + quotaDInput;
+
+        const quotaresarve = resarveBalance - quotaDInput;
+
+        document.getElementById('quota-balance').innerText = quotaDonation;
+
+        document.getElementById('reserve-balance').innerText = quotaresarve;
+
+        const now = new Date();
+
+        const displayhistory = document.createElement('div');
+
+        displayhistory.classList.add('border-2');
+        displayhistory.classList.add('rounded-md');
+        displayhistory.classList.add('mx-20');
+        displayhistory.classList.add('gap-6');
+        displayhistory.classList.add('my-4');
+        displayhistory.classList.add('p-4');
+       
+    
+
+
+        const childdiv1 = document.createElement('div');
+        childdiv1.innerHTML=`
+        <h2 class="font-bold">${quotaDInput} Taka is Donated for Injured in the Quota Movement</h2>
+        `
+        const childdiv2 = document.createElement('div');
+        childdiv2.innerHTML=`
+        <h2 class="">Date: ${now}</h2>
+        `
+
+        displayhistory.appendChild(childdiv1);
+        displayhistory.appendChild(childdiv2);
+
+        document.getElementById('history-section').appendChild(displayhistory);
+
+        }
+    
 })
